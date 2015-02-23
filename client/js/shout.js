@@ -398,6 +398,29 @@ $(function() {
 		.history()
 		.tab(complete, {hint: false});
 
+  input.on("paste", function(e) {
+    var items = (e.clipboardData || e.originalEvent.clipboardData).items;
+    var blob = items[0].getAsFile();
+    var reader = new FileReader();
+    reader.onload = function(e){
+      var dataURL = e.target.result;
+      $.ajax({
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader ("Authorization", "");
+        },
+        method: "POST",
+        url: "https://api.imgur.com/3/image",
+        data: {
+          image: dataURL.slice(22)
+        },
+        success: function(response) {
+          input.val(input.val() + response.data.link);
+        }
+      });
+    };
+    reader.readAsDataURL(blob);
+  });
+
 	var form = $("#form");
 	var submit = $("#submit");
 
