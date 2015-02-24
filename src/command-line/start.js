@@ -1,7 +1,7 @@
 var _ = require("lodash");
 var ClientManager = new require("../clientManager");
 var program = require("commander");
-var shout = require("../server");
+var roar = require("../server");
 var Helper = require("../helper");
 
 program
@@ -24,10 +24,10 @@ program
 		if (!mode && !users.length) {
 			console.log("");
 			console.log("No users found!");
-			console.log("Create a new user with 'shout add <name>'.");
+			console.log("Create a new user with 'roar add <name>'.");
 			console.log("");
 		} else {
-			shout({
+			roar({
 				host: program.host || process.env.IP   || config.host,
 				port: program.port || process.env.PORT || config.port,
 				bind: program.bind || config.bind,

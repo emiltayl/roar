@@ -49,7 +49,7 @@
 			
 			case 38: // Up
 			case 40: // Down
-				// NOTICE: This is specific to the Shout client.
+				// NOTICE: This is specific to the Roar client.
 				if (e.ctrlKey || e.metaKey) {
 					break;
 				}

@@ -1,15 +1,14 @@
 {
-  "name": "shout",
+  "name": "roar",
   "description": "Web IRC client",
-  "version": "0.50.0",
-  "author": "Mattias Erming",
   "preferGlobal": true,
+  "version": 1,
   "bin": {
-    "shout": "index.js"
+    "roar": "index.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/erming/shout.git"
+    "url": "https://github.com/sigvef/roar.git"
   },
   "scripts": {
     "start": "node index",
