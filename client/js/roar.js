@@ -500,7 +500,7 @@ $(function() {
 			.sticky()
 			.end();
 
-		var title = "Shout";
+		var title = "Roar";
 		if (chan.data("title")) {
 			title = chan.data("title") + " — " + title;
 		}

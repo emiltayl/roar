@@ -56,7 +56,7 @@ module.exports = {
 	//
 	// Prefetch URLs
 	//
-	// If enabled, Shout will try to load thumbnails and site descriptions from
+	// If enabled, Roar will try to load thumbnails and site descriptions from
 	// URLs posted in channels.
 	//
 	// @type     boolean
@@ -142,33 +142,33 @@ module.exports = {
 		// Nick
 		//
 		// @type     string
-		// @default  "shout-user"
+		// @default  "roar-user"
 		//
-		nick: "shout-user",
+		nick: "roar-user",
 
 		//
 		// Username
 		//
 		// @type     string
-		// @default  "shout-user"
+		// @default  "roar-user"
 		//
-		username: "shout-user",
+		username: "roar-user",
 
 		//
 		// Real Name
 		//
 		// @type     string
-		// @default  "Shout User"
+		// @default  "Roar User"
 		//
-		realname: "Shout User",
+		realname: "Roar User",
 
 		//
 		// Channels
 		//
 		// @type     string
-		// @default  "#foo, #shout-irc"
+		// @default  "#roar-irc"
 		//
-		join: "#foo, #shout-irc"
+		join: "#roar-irc"
 	},
 
 	//
@@ -180,7 +180,7 @@ module.exports = {
 	transports: ["polling", "websocket"],
 
 	//
-	// Run Shout with HTTPS support.
+	// Run Roar with HTTPS support.
 	//
 	// @type     object
 	// @default  {}
@@ -214,7 +214,7 @@ module.exports = {
 	},
 
 	//
-	// Run Shout with identd support.
+	// Run Roar with identd support.
 	//
 	// @type     object
 	// @default  {}
