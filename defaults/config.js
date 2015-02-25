@@ -235,5 +235,11 @@ module.exports = {
 		// @default  113
 		//
 		port: 113
-	}
+	},
+
+  gcm: {
+    enabled: false,
+    registrationIds: [],
+    senderKey: ''
+  }
 };

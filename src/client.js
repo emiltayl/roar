@@ -2,6 +2,7 @@ var _ = require("lodash");
 var Chan = require("./models/chan");
 var crypto = require("crypto");
 var fs = require("fs");
+var gcm = require("node-gcm");
 var identd = require("./identd");
 var log = require("./log");
 var net = require("net");
@@ -57,7 +58,8 @@ function Client(sockets, name, config) {
 		id: id++,
 		name: name,
 		networks: [],
-		sockets: sockets
+		sockets: sockets,
+    gcmSender: new gcm.Sender(Helper.getConfig().gcm.senderKey)
 	});
 	var client = this;
 	crypto.randomBytes(48, function(err, buf) {
@@ -96,6 +98,31 @@ Client.prototype.emit = function(event, data) {
 			}
 		}
 	}
+
+  if (config.gcm && config.gcm.enabled) {
+    var target = this.find(data.chan);
+    if(target) {
+      var chan = target.chan.name;
+      if (target.chan.type == Chan.Type.LOBBY) {
+        chan = target.network.host;
+      }
+      var message = new gcm.Message({
+          collapseKey: 'roar',
+          data: {
+            name: this.name,
+            host: target.network.host,
+            chan: chan,
+            time_to_live: 3,
+            msg: data.msg
+          }
+      });
+      this.gcmSender.send(
+        message,
+        config.gcm.registrationIds,
+        function(err, result) {}
+      );
+    }
+  }
 };
 
 Client.prototype.find = function(id) {
