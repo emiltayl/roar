@@ -2,7 +2,7 @@
   "name": "roar",
   "description": "Web IRC client",
   "preferGlobal": true,
-  "version": 1,
+  "version": "1.0.0",
   "bin": {
     "roar": "index.js"
   },
